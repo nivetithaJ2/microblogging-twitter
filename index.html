@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sathya Priya Raj Kumar - Connectly</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-box">C</div>
+            <span>Connectly</span>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" onclick="showSection('home', this)">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </button>
+
+            <button class="nav-item" onclick="showSection('explore', this)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Explore</span>
+            </button>
+
+            <button class="nav-item" onclick="showSection('notifications', this)">
+                <i class="fa-regular fa-heart"></i>
+                <span>Notifications</span>
+            </button>
+
+            <button class="nav-item" onclick="showSection('messages', this)">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Messages</span>
+            </button>
+
+            <button class="nav-item" onclick="showSection('profile', this)">
+                <i class="fa-regular fa-circle-user"></i>
+                <span>Profile</span>
+            </button>
+
+        </nav>
+
+        <button class="create-btn" onclick="focusPost()">
+            <i class="fa-solid fa-plus"></i>
+            Create Post
+        </button>
+
+        <div class="sidebar-profile">
+            <div class="avatar">SP</div>
+
+            <div>
+                <strong>Sathya Priya Raj Kumar</strong>
+                <small>@sathyapriya</small>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- HOME -->
+        <section id="home" class="section active">
+
+            <div class="top-title">
+                <div>
+                    <small>YOUR FEED</small>
+                    <h1>Home</h1>
+                </div>
+
+                <button class="latest-btn">
+                    Latest <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            </div>
+
+
+            <!-- CREATE POST -->
+            <div class="post-box">
+
+                <div class="avatar">SP</div>
+
+                <div class="post-area">
+
+                    <textarea id="tweetInput"
+                        maxlength="280"
+                        placeholder="What's happening?"></textarea>
+
+                    <div class="post-bottom">
+
+                        <div class="post-icons">
+                            <i class="fa-regular fa-image"></i>
+                            <i class="fa-regular fa-face-smile"></i>
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+
+                        <div>
+                            <span id="charCount">0/280</span>
+
+                            <button onclick="postTweet()">Post</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- POSTS -->
+            <div id="posts">
+
+                <article class="tweet">
+
+                    <div class="avatar">SP</div>
+
+                    <div class="tweet-content">
+
+                        <div class="tweet-header">
+                            <strong>Sathya Priya Raj Kumar</strong>
+                            <span>@sathyapriya · 2h</span>
+                        </div>
+
+                        <p>
+                            Just started building my full-stack micro-blogging
+                            application! 🚀
+                        </p>
+
+                        <div class="tweet-actions">
+
+                            <button onclick="comment(this)">
+                                <i class="fa-regular fa-comment"></i>
+                                <span>0</span>
+                            </button>
+
+                            <button onclick="repost(this)">
+                                <i class="fa-solid fa-retweet"></i>
+                                <span>8</span>
+                            </button>
+
+                            <button onclick="like(this)">
+                                <i class="fa-regular fa-heart"></i>
+                                <span>24</span>
+                            </button>
+
+                            <button onclick="bookmark(this)">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+
+                        </div>
+
+                        <div class="comment-box">
+
+                            <input type="text"
+                                   placeholder="Write a comment...">
+
+                            <button onclick="addComment(this)">
+                                Comment
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="tweet">
+
+                    <div class="avatar avatar-blue">AK</div>
+
+                    <div class="tweet-content">
+
+                        <div class="tweet-header">
+                            <strong>Arun Kumar</strong>
+                            <span>@arunkumar · 4h</span>
+                        </div>
+
+                        <p>
+                            Learning React and Node.js today.
+                            Building projects is the best way to improve skills 💻
+                        </p>
+
+                        <div class="tweet-actions">
+
+                            <button onclick="comment(this)">
+                                <i class="fa-regular fa-comment"></i>
+                                <span>0</span>
+                            </button>
+
+                            <button onclick="repost(this)">
+                                <i class="fa-solid fa-retweet"></i>
+                                <span>4</span>
+                            </button>
+
+                            <button onclick="like(this)">
+                                <i class="fa-regular fa-heart"></i>
+                                <span>18</span>
+                            </button>
+
+                            <button onclick="bookmark(this)">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+
+                        </div>
+
+                        <div class="comment-box">
+
+                            <input type="text"
+                                   placeholder="Write a comment...">
+
+                            <button onclick="addComment(this)">
+                                Comment
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPLORE -->
+        <section id="explore" class="section">
+
+            <div class="page-heading">
+                <small>DISCOVER</small>
+                <h1>Explore</h1>
+            </div>
+
+            <input class="search-box"
+                   type="text"
+                   placeholder="🔍  Search topics..."
+                   onkeyup="searchTopics(this)">
+
+            <div id="topics">
+
+                <div class="topic">
+                    <span>🔥 React</span>
+                    <small>12.4K posts</small>
+                </div>
+
+                <div class="topic">
+                    <span>🤖 Artificial Intelligence</span>
+                    <small>21.3K posts</small>
+                </div>
+
+                <div class="topic">
+                    <span>💻 Full Stack Development</span>
+                    <small>8.7K posts</small>
+                </div>
+
+                <div class="topic">
+                    <span>🌐 Web Development</span>
+                    <small>15.2K posts</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS -->
+        <section id="notifications" class="section">
+
+            <div class="page-heading notification-heading">
+                <div>
+                    <small>UPDATES</small>
+                    <h1>Notifications</h1>
+                </div>
+
+                <button onclick="clearNotifications()">
+                    Clear all
+                </button>
+            </div>
+
+            <div id="notificationList">
+
+                <div class="notification">
+                    <div class="notification-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <div>
+                        <strong>Connectly</strong>
+                        <p>Welcome to Connectly! 🎉</p>
+                    </div>
+                </div>
+
+                <div class="notification">
+                    <div class="notification-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <div>
+                        <strong>Connectly</strong>
+                        <p>Your profile is ready.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGES -->
+        <section id="messages" class="section">
+
+            <div class="page-heading">
+                <small>CHAT</small>
+                <h1>Messages</h1>
+            </div>
+
+            <div class="chat">
+
+                <div class="message received">
+                    Hi Sathya! 👋
+                </div>
+
+                <div class="message received">
+                    How is your project going?
+                </div>
+
+                <div id="sentMessages"></div>
+
+                <div class="message-input">
+
+                    <input id="messageInput"
+                           type="text"
+                           placeholder="Write a message...">
+
+                    <button onclick="sendMessage()">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+        <section id="profile" class="section">
+
+            <div class="cover"></div>
+
+            <div class="profile-container">
+
+                <div class="profile-avatar">
+                    SP
+                </div>
+
+                <button class="edit-btn" onclick="editProfile()">
+                    Edit Profile
+                </button>
+
+                <h1>Sathya Priya Raj Kumar</h1>
+
+                <p class="username">@sathyapriya</p>
+
+                <p class="bio">
+                    B.Tech Information Technology student passionate about
+                    Full Stack Development and modern web technologies. 💻
+                </p>
+
+                <p class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tamil Nadu, India
+                </p>
+
+                <div class="stats">
+
+                    <div>
+                        <strong id="postCount">2</strong>
+                        <span>Posts</span>
+                    </div>
+
+                    <div>
+                        <strong>128</strong>
+                        <span>Followers</span>
+                    </div>
+
+                    <div>
+                        <strong>0</strong>
+                        <span>Following</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RIGHT SIDE -->
+    <aside class="right-sidebar">
+
+        <div class="search-top">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search Connectly">
+        </div>
+
+        <div class="right-card">
+
+            <h2>Who to follow</h2>
+
+            <div class="follow-user">
+
+                <div class="avatar avatar-purple">NK</div>
+
+                <div>
+                    <strong>Nakshatra</strong>
+                    <small>@nakshatra</small>
+                </div>
+
+                <button onclick="followUser(this)">
+                    Follow
+                </button>
+
+            </div>
+
+
+            <div class="follow-user">
+
+                <div class="avatar avatar-orange">SU</div>
+
+                <div>
+                    <strong>Suchithra</strong>
+                    <small>@suchithra</small>
+                </div>
+
+                <button onclick="followUser(this)">
+                    Follow
+                </button>
+
+            </div>
+
+
+            <div class="follow-user">
+
+                <div class="avatar avatar-green">ME</div>
+
+                <div>
+                    <strong>Megavarshini</strong>
+                    <small>@megavarshini</small>
+                </div>
+
+                <button onclick="followUser(this)">
+                    Follow
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
